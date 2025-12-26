@@ -1,0 +1,221 @@
+metadata:
+  name: "prime-radiant-core-etf-universe"
+  version: "v1.0"
+  description: >
+    Core liquid ETF universe for quantitative research.
+    Daily frequency only. Focus on high-liquidity ETFs with
+    sufficient historical depth. Includes US, international,
+    fixed income, commodities, crypto-linked ETFs, and Mexican FIBRAs.
+  created_at: "2025-01-01"
+  governance:
+    rules:
+      - ETFs only (no single stocks)
+      - No leveraged or inverse ETFs
+      - Minimum 3 years of history preferred
+      - Liquidity enforced via ADV filters post-ingestion
+      - Universe changes require version bump
+
+regions:
+
+  us_equity:
+    broad_market:
+      - SPLG
+      - SPY
+      - IVV
+      - VOO
+
+    large_cap_growth:
+      - QQQM
+      - QQQ
+      - VUG
+      - IWF
+      - SCHG
+
+    large_cap_value:
+      - VTV
+      - IWD
+      - SCHV
+
+    mid_cap:
+      - IJH
+      - VO
+      - MDY
+
+    small_cap:
+      - IWM
+      - IJR
+      - VB
+
+    sectors:
+      - XLK   # Technology
+      - XLF   # Financials
+      - XLE   # Energy
+      - XLV   # Health Care
+      - XLI   # Industrials
+      - XLY   # Consumer Discretionary
+      - XLP   # Consumer Staples
+      - XLU   # Utilities
+      - XLB   # Materials
+      - XLRE  # Real Estate
+
+  us_fixed_income:
+    aggregate:
+      - BND
+      - AGG
+
+    treasuries:
+      - SHY
+      - IEF
+      - TLT
+      - TIP
+
+    credit:
+      - LQD
+      - HYG
+      - JNK
+
+    municipals:
+      - MUB
+
+  commodities:
+    precious_metals:
+      - GLD
+      - IAU
+      - SLV
+
+    broad:
+      - DBC
+      - GSG
+
+    energy:
+      - USO
+      - BNO
+
+  crypto_linked:
+    - IBIT          # REQUIRED
+    - FBTC
+    - BITO
+
+  international_equity:
+    developed:
+      - VXUS
+      - IEFA
+      - EFA
+      - EWJ   # Japan
+      - EWU   # UK
+      - EWG   # Germany
+      - EWC   # Canada
+      - EWA   # Australia
+
+    emerging:
+      - EEM
+      - IEMG
+      - EWZ   # Brazil
+      - INDA  # India
+      - FXI   # China
+      - EWW   # Mexico
+
+  mexico:
+    fibras:
+      # Mexican REIT-like vehicles (BMV tickers)
+      - FUNO11.MX
+      - FIBRAPL14.MX
+      - FIBRAMQ12.MX
+      - TERRA13.MX
+      - DANHOS13.MX
+
+# -------------------------------------------------------------------
+# Symbol normalization
+# Canonical symbols are used internally in research.
+# Provider symbols are mapped explicitly to avoid hardcoded logic.
+# -------------------------------------------------------------------
+
+symbol_mapping:
+
+  stooq:
+    # US ETFs
+    SPLG: splg.us
+    SPY: spy.us
+    IVV: ivv.us
+    VOO: voo.us
+    QQQM: qqqm.us
+    QQQ: qqq.us
+    VUG: vug.us
+    IWF: iwf.us
+    SCHG: schg.us
+    VTV: vtv.us
+    IWD: iwd.us
+    SCHV: schv.us
+    IJH: ijh.us
+    VO: vo.us
+    MDY: mdy.us
+    IWM: iwm.us
+    IJR: ijr.us
+    VB: vb.us
+
+    XLK: xlk.us
+    XLF: xlf.us
+    XLE: xle.us
+    XLV: xlv.us
+    XLI: xli.us
+    XLY: xly.us
+    XLP: xlp.us
+    XLU: xlu.us
+    XLB: xlb.us
+    XLRE: xlre.us
+
+    BND: bnd.us
+    AGG: agg.us
+    SHY: shy.us
+    IEF: ief.us
+    TLT: tlt.us
+    TIP: tip.us
+    LQD: lqd.us
+    HYG: hyg.us
+    JNK: jnk.us
+    MUB: mub.us
+
+    GLD: gld.us
+    IAU: iau.us
+    SLV: slv.us
+    DBC: dbc.us
+    GSG: gsg.us
+    USO: uso.us
+    BNO: bno.us
+
+    IBIT: ibit.us
+    FBTC: fbtc.us
+    BITO: bito.us
+
+    VXUS: vxus.us
+    IEFA: iefa.us
+    EFA: efa.us
+    EWJ: ewj.us
+    EWU: ewu.us
+    EWG: ewg.us
+    EWC: ewc.us
+    EWA: ewa.us
+    EEM: eem.us
+    IEMG: iemg.us
+    EWZ: ewz.us
+    INDA: inda.us
+    FXI: fxi.us
+    EWW: eww.us
+
+    # Mexico (BMV) – Stooq conventions may vary; mappings are explicit by design
+    FUNO11.MX: funo11.mx
+    FIBRAPL14.MX: fibrapl14.mx
+    FIBRAMQ12.MX: fibramq12.mx
+    TERRA13.MX: terra13.mx
+    DANHOS13.MX: danhos13.mx
+
+  yahoo:
+    # Yahoo generally uses canonical tickers directly
+    SPLG: SPLG
+    QQQM: QQQM
+    IBIT: IBIT
+    FUNO11.MX: FUNO11.MX
+    FIBRAPL14.MX: FIBRAPL14.MX
+    FIBRAMQ12.MX: FIBRAMQ12.MX
+    TERRA13.MX: TERRA13.MX
+    DANHOS13.MX: DANHOS13.MX

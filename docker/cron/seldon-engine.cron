@@ -1,0 +1,8 @@
+# Seldon Engine – daily equities ingestion
+# Default schedule: 02:10 local time
+# This file may be rewritten at runtime by entrypoint.sh
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+10 2 * * * cd /app && python -m scripts.ingest_equities_daily >> /app/storage/logs/ingest.log 2>&1

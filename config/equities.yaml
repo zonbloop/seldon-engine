@@ -1,0 +1,103 @@
+metadata:
+  name: "prime-radiant-core-etf-universe"
+  version: "v1.0"
+  description: >
+    Core liquid ETF universe for quantitative research.
+    Focused on daily data, long history, and high liquidity.
+  created_at: "2025-01-01"
+  notes:
+    - ETFs only
+    - No leveraged or inverse products
+    - Daily frequency only
+
+regions:
+
+  us_equity:
+    broad_market:
+      - SPLG      # S&P 500 (low-cost, liquid)
+      - IVV
+      - VOO
+      - SPY
+
+    large_cap_growth:
+      - QQQM      # REQUIRED
+      - QQQ
+      - VUG
+      - IWF
+
+    large_cap_value:
+      - VTV
+      - IWD
+      - SCHV
+
+    mid_cap:
+      - IJH
+      - VO
+      - MDY
+
+    small_cap:
+      - IWM
+      - IJR
+      - VB
+
+    sectors:
+      - XLK
+      - XLF
+      - XLE
+      - XLV
+      - XLI
+      - XLY
+      - XLP
+      - XLU
+      - XLB
+      - XLRE
+
+  us_fixed_income:
+    - BND
+    - AGG
+    - LQD
+    - HYG
+    - TLT
+    - IEF
+    - SHY
+    - TIP
+
+  commodities:
+    - GLD
+    - IAU
+    - SLV
+    - DBC
+    - USO
+
+  crypto_linked:
+    - IBIT     # REQUIRED
+    - FBTC
+    - ARKK     # proxy for crypto-adjacent risk
+
+  international_equity:
+    developed:
+      - VXUS
+      - IEFA
+      - EFA
+      - EWJ
+      - EWU
+      - EWG
+
+    emerging:
+      - EEM
+      - IEMG
+      - EWZ
+      - INDA
+      - FXI
+
+  mexico:
+    broad_market:
+      - EWW
+
+    fibras:
+      # Mexican REIT-like vehicles (FIBRAs)
+      - FIBRAPL14.MX
+      - FIBRAMQ12.MX
+      - FUNO11.MX
+      - TERRA13.MX
+      - DANHOS13.MX
